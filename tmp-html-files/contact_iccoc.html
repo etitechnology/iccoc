@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Contact ICCOC - Islamic Community Center of Orange County</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ecb613",
+                "background-light": "#f8f8f6",
+                "background-dark": "#221d10",
+              },
+              fontFamily: {
+                "display": ["Noto Serif", "serif"],
+                "sans": ["Noto Sans", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            font-family: "Noto Sans", sans-serif;
+        }
+        .font-display {
+            font-family: "Noto Serif", serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Navigation Header -->
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-[#393528] px-6 lg:px-20 py-4 bg-background-light dark:bg-background-dark sticky top-0 z-50">
+<div class="flex items-center gap-4">
+<div class="size-6 text-primary">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"></path>
+</svg>
+</div>
+<h2 class="text-xl font-display font-bold leading-tight tracking-[-0.015em]">ICCOC</h2>
+</div>
+<div class="flex flex-1 justify-end gap-8">
+<nav class="hidden md:flex items-center gap-9">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">About</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Services</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Donations</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Contact</a>
+</nav>
+<button class="flex min-w-[100px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-5 bg-primary text-background-dark text-sm font-bold leading-normal tracking-[0.015em] transition-transform hover:scale-105">
+<span class="truncate">Donate</span>
+</button>
+</div>
+</header>
+<main class="flex-1 flex flex-col items-center">
+<div class="layout-content-container flex flex-col max-w-[1200px] w-full px-6 lg:px-10 py-12">
+<!-- Hero Section -->
+<div class="flex flex-wrap justify-between gap-6 mb-12">
+<div class="flex min-w-72 flex-col gap-4 max-w-2xl">
+<h1 class="text-slate-900 dark:text-white text-5xl font-display font-bold leading-tight tracking-[-0.033em]">Contact Us</h1>
+<p class="text-slate-600 dark:text-[#b9b29d] text-lg font-normal leading-relaxed">
+                                We are here to serve our community. Whether you have a general inquiry, want to volunteer, or need assistance with donations, please reach out to us.
+                            </p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<!-- Contact Form Section -->
+<div class="flex flex-col gap-8">
+<h3 class="text-2xl font-display font-bold">Send us a Message</h3>
+<form class="flex flex-col gap-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium">Full Name</span>
+<input class="w-full rounded-lg border border-slate-300 dark:border-[#544d3b] bg-white dark:bg-[#27241c] h-14 px-4 text-base focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="John Doe" type="text"/>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium">Email Address</span>
+<input class="w-full rounded-lg border border-slate-300 dark:border-[#544d3b] bg-white dark:bg-[#27241c] h-14 px-4 text-base focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="john@example.com" type="email"/>
+</label>
+</div>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium">Inquiry Type</span>
+<select class="w-full rounded-lg border border-slate-300 dark:border-[#544d3b] bg-white dark:bg-[#27241c] h-14 px-4 text-base focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all">
+<option>General Inquiry</option>
+<option>Donations &amp; Zakat</option>
+<option>Volunteer Opportunities</option>
+<option>Community Services</option>
+</select>
+</label>
+<label class="flex flex-col gap-2">
+<span class="text-sm font-medium">Your Message</span>
+<textarea class="w-full rounded-lg border border-slate-300 dark:border-[#544d3b] bg-white dark:bg-[#27241c] p-4 text-base focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none" placeholder="How can we help you?" rows="5"></textarea>
+</label>
+<button class="bg-primary text-background-dark font-bold py-4 px-8 rounded-lg transition-all hover:opacity-90 active:scale-[0.98] w-full md:w-max" type="submit">
+                                    Send Message
+                                </button>
+</form>
+</div>
+<!-- Sidebar Info -->
+<div class="flex flex-col gap-10">
+<!-- Direct Contact Cards -->
+<div class="grid grid-cols-1 gap-4">
+<div class="flex flex-col gap-2 p-6 rounded-xl bg-slate-100 dark:bg-[#27241c] border border-slate-200 dark:border-[#393528]">
+<div class="flex items-center gap-3 text-primary mb-2">
+<span class="material-symbols-outlined">mail</span>
+<p class="text-sm font-semibold uppercase tracking-wider">Email Us</p>
+</div>
+<p class="text-xl font-medium">contact@iccoc.net</p>
+<p class="text-sm text-slate-500 dark:text-[#b9b29d]">Our support team typically responds within 24 hours.</p>
+</div>
+<div class="flex flex-col gap-2 p-6 rounded-xl bg-slate-100 dark:bg-[#27241c] border border-slate-200 dark:border-[#393528]">
+<div class="flex items-center gap-3 text-primary mb-2">
+<span class="material-symbols-outlined">call</span>
+<p class="text-sm font-semibold uppercase tracking-wider">Call Us</p>
+</div>
+<p class="text-xl font-medium">(949) 345-0923</p>
+<p class="text-sm text-slate-500 dark:text-[#b9b29d]">Mon-Fri from 9am to 5pm PST.</p>
+</div>
+</div>
+<!-- Map Section -->
+<div class="flex flex-col gap-4">
+<h3 class="text-xl font-display font-bold">Our Location</h3>
+<div class="w-full h-[300px] rounded-xl overflow-hidden relative group">
+<img class="w-full h-full object-cover grayscale opacity-50 dark:opacity-30 group-hover:opacity-60 transition-opacity" data-alt="Map of Orange County California area" data-location="Orange County" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuILB4lHJVhMaR_BVnpLSNlRhXAi-w1xCFSK2mwYFl_-GURBVtd2qNKp0-Hs906AZCF_DPnK2l870RFAGJdYQxQxlDu6Y-uzpzAG4zJaRz8iwVM7UGryq-rMncRR5yv7_dTUyrJItRZY19U1vwWCvdmtxco6tlVRs2sb5Ld1BhBqr7_hrS23zQVqoydME_2YsTDKV5Zj61z1OLDvwJAwijZ4DMamd9XolaR20g5zOxVtWFDcPsGNStFniBO_Z9_MXgTatg7AR8LVw"/>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary p-3 rounded-full shadow-xl">
+<span class="material-symbols-outlined text-background-dark scale-125">location_on</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-[#181611]/90 backdrop-blur-sm p-4 rounded-lg border border-slate-200 dark:border-[#393528]">
+<p class="text-sm font-bold">Islamic Community Center of Orange County</p>
+<p class="text-xs text-slate-600 dark:text-[#b9b29d]">Serving the greater OC area since 1994.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-slate-200 dark:border-[#393528] py-12 px-6 lg:px-20 bg-background-light dark:bg-[#181611]">
+<div class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start gap-4">
+<div class="flex items-center gap-3 text-primary">
+<div class="size-5">
+<svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"></path>
+</svg>
+</div>
+<span class="font-display font-bold text-lg tracking-tight">ICCOC</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-[#b9b29d] text-center md:text-left">
+                            Registered 501(c)(3) nonprofit organization. All donations are tax-deductible.
+                        </p>
+</div>
+<div class="flex flex-col items-center md:items-end gap-4">
+<div class="flex gap-6">
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">social_leaderboard</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">camera</span></a>
+<a class="text-slate-500 hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+</div>
+<p class="text-xs text-slate-500 dark:text-[#544d3b]">
+                            © 2024 Islamic Community Center of Orange County. All rights reserved.
+                        </p>
+</div>
+</div>
+</footer>
+</div>
+</div>
+</body></html>
