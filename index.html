@@ -251,6 +251,15 @@
         menu.classList.toggle('hidden');
     });
 
+    // Convert 24-hour time to 12-hour AM/PM format
+    function convertTo12Hour(time24) {
+        const [hours, minutes] = time24.split(':');
+        let hour = parseInt(hours);
+        const ampm = hour >= 12 ? 'PM' : 'AM';
+        hour = hour % 12 || 12;
+        return `${hour}:${minutes} ${ampm}`;
+    }
+
     // Load prayer times from IslamicAPI
     async function loadPrayerTimes() {
         try {
@@ -264,23 +273,23 @@
                 container.innerHTML = `
                     <div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-dark shadow-sm">
                         <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Fajr</p>
-                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${times.Fajr}</p>
+                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${convertTo12Hour(times.Fajr)}</p>
                     </div>
                     <div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-dark shadow-sm">
                         <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Dhuhr</p>
-                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${times.Dhuhr}</p>
+                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${convertTo12Hour(times.Dhuhr)}</p>
                     </div>
                     <div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-dark shadow-sm">
                         <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Asr</p>
-                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${times.Asr}</p>
+                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${convertTo12Hour(times.Asr)}</p>
                     </div>
                     <div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-dark shadow-sm border-primary/50 ring-1 ring-primary/20">
                         <p class="text-primary text-sm font-bold uppercase tracking-wider">Maghrib</p>
-                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${times.Maghrib}</p>
+                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${convertTo12Hour(times.Maghrib)}</p>
                     </div>
                     <div class="flex flex-col gap-2 rounded-xl p-6 bg-white dark:bg-surface-dark border border-gray-100 dark:border-border-dark shadow-sm">
                         <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Isha</p>
-                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${times.Isha}</p>
+                        <p class="text-gray-900 dark:text-primary text-2xl font-bold">${convertTo12Hour(times.Isha)}</p>
                     </div>
                 `;
             }
