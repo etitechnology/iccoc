@@ -1,5 +1,15 @@
-# admin files
+# Admin & config files (NEVER commit these)
+config.php
+.login_attempts
+
+# for now (until we host on a server with PHP):
 admin.php
+config.sample.php
+.htaccess
+# remove the 3 lines above once we host on a server with PHP
+
+tmp-html-files/
+.claude/
 
 # hosting info
 HOSTING_INSTRUCTIONS.md
