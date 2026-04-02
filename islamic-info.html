@@ -48,7 +48,6 @@ font-family: 'Noto Serif', serif;
             </a>
 <nav class="hidden md:flex items-center gap-8">
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="./">Home</a>
-<a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="programs">Programs</a>
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="school">School Initiative</a>
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="islamic-info">Islamic Info</a>
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="contact">Contact</a>
@@ -65,7 +64,6 @@ Donate
 <!-- Mobile Menu -->
 <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 flex flex-col gap-4">
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="./">Home</a>
-<a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="programs">Programs</a>
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="school">School Initiative</a>
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="islamic-info">Islamic Info</a>
 <a class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors text-sm font-medium" href="contact">Contact</a>
@@ -78,7 +76,7 @@ Donate
 <div class="max-w-[1200px] mx-auto text-center">
 <h1 class="text-gray-900 dark:text-white text-4xl md:text-5xl font-black font-display mb-4">Islamic Information</h1>
 <p class="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-Live prayer times, fasting schedule, Zakat Nisab values, and the 99 Names of Allah for Orange County, California.
+Live prayer times, Zakat Nisab values, and the 99 Names of Allah for Orange County, California.
 </p>
 </div>
 </section>
@@ -98,16 +96,6 @@ Live prayer times, fasting schedule, Zakat Nisab values, and the 99 Names of All
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="prayer-details">
 <!-- Will be populated via API -->
-</div>
-</div>
-</section>
-
-<!-- Fasting Times Section -->
-<section class="px-4 md:px-20 py-12">
-<div class="max-w-[1200px] mx-auto">
-<h2 class="text-gray-900 dark:text-white text-3xl font-bold font-display mb-8">Ramadan Fasting Times</h2>
-<div id="fasting-times" class="bg-white dark:bg-surface-dark rounded-xl p-8 border border-gray-200 dark:border-border-dark">
-<p class="text-gray-500 dark:text-gray-400">Loading fasting times...</p>
 </div>
 </div>
 </section>
@@ -155,9 +143,8 @@ Dedicated to serving the Orange County community through faith, education, and c
 <h3 class="text-gray-900 dark:text-white font-bold mb-4">Quick Links</h3>
 <ul class="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-400">
 <li><a class="hover:text-primary" href="islamic-info">Prayer Times</a></li>
-<li><a class="hover:text-primary" href="programs">Community Events</a></li>
 <li><a class="hover:text-primary" href="donate">Donations</a></li>
-<li><a class="hover:text-primary" href="programs">Youth Programs</a></li>
+<li><a class="hover:text-primary" href="school">School Initiative</a></li>
 </ul>
 </div>
 <div>
@@ -255,15 +242,6 @@ const details = document.getElementById('prayer-details');
 details.innerHTML = `
 <div class="flex gap-4 rounded-xl border border-gray-100 dark:border-border-dark bg-white dark:bg-surface-dark p-6 items-start">
 <div class="text-primary bg-primary/10 p-3 rounded-lg">
-<span class="material-symbols-outlined text-3xl">schedule</span>
-</div>
-<div class="flex flex-col gap-1">
-<h3 class="text-gray-900 dark:text-white text-lg font-bold">Suhoor &amp; Iftar</h3>
-<p class="text-gray-600 dark:text-gray-400 text-sm">Ends at ${convertTo12Hour(times.Imsak)} • Starts at ${convertTo12Hour(times.Maghrib)}</p>
-</div>
-</div>
-<div class="flex gap-4 rounded-xl border border-gray-100 dark:border-border-dark bg-white dark:bg-surface-dark p-6 items-start">
-<div class="text-primary bg-primary/10 p-3 rounded-lg">
 <span class="material-symbols-outlined text-3xl">explore</span>
 </div>
 <div class="flex flex-col gap-1">
@@ -284,51 +262,6 @@ details.innerHTML = `
 }
 } catch (error) {
 console.error('Error loading prayer times:', error);
-}
-}
-
-// Load Fasting Times
-async function loadFastingTimes() {
-try {
-// Check if we're currently in Ramadan 2026 (Feb 18 - Mar 19, 2026)
-const today = new Date();
-const ramadanStart = new Date('2026-02-18');
-const ramadanEnd = new Date('2026-03-19');
-const isRamadan = today >= ramadanStart && today <= ramadanEnd;
-
-// If not in Ramadan, use the first day of Ramadan 2026
-const dateParam = isRamadan ? '' : '&date=2026-02-18';
-
-const response = await fetch(`https://islamicapi.com/api/v1/fasting/?lat=${LAT}&lon=${LON}&method=${METHOD}${dateParam}&api_key=${API_KEY}`);
-const data = await response.json();
-
-if (data.status === 'success' && data.data.fasting.length > 0) {
-const fasting = data.data.fasting[0];
-const container = document.getElementById('fasting-times');
-const noticeHtml = !isRamadan ? '<div class="mb-4 p-4 bg-primary/10 border border-primary/20 rounded-lg"><p class="text-sm text-gray-700 dark:text-gray-300"><strong>Note:</strong> Showing times for the first day of Ramadan 2026 (Feb 18, 2026)</p></div>' : '';
-container.innerHTML = noticeHtml + `
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="flex flex-col">
-<p class="text-gray-500 dark:text-gray-400 text-sm mb-2">Date</p>
-<p class="text-gray-900 dark:text-white text-xl font-bold">${fasting.hijri_readable}</p>
-<p class="text-gray-600 dark:text-gray-400 text-sm">${fasting.date}</p>
-</div>
-<div class="flex flex-col">
-<p class="text-gray-500 dark:text-gray-400 text-sm mb-2">Sahur (Pre-dawn meal)</p>
-<p class="text-primary text-2xl font-bold">${convertTo12Hour(fasting.time.sahur)}</p>
-</div>
-<div class="flex flex-col">
-<p class="text-gray-500 dark:text-gray-400 text-sm mb-2">Iftar (Breaking fast)</p>
-<p class="text-primary text-2xl font-bold">${convertTo12Hour(fasting.time.iftar)}</p>
-</div>
-</div>
-<div class="mt-6 pt-6 border-t border-gray-200 dark:border-border-dark">
-<p class="text-gray-600 dark:text-gray-400 text-sm">Fasting duration: <span class="font-bold">${fasting.time.duration}</span></p>
-</div>
-`;
-}
-} catch (error) {
-console.error('Error loading fasting times:', error);
 }
 }
 
@@ -453,7 +386,6 @@ console.error('Error loading all names:', error);
 // Load all data on page load
 document.addEventListener('DOMContentLoaded', function() {
 loadPrayerTimes();
-loadFastingTimes();
 loadZakatNisab();
 loadAsmaUlHusna();
 });
